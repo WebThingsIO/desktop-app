@@ -1,0 +1,89 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/opensans-regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/opensans-semibold.woff") format("woff");
+}
+
+/* Body */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+  min-width: 32rem;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  background-color: #5d9bc7;
+  overflow: hidden; 
+}
+
+/* Title Bar */
+
+.title-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #5288af;
+  width: calc(100% - 22rem);
+  margin: 0 0 0 22rem;
+  height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 5rem;
+  box-sizing: border-box;
+}
+
+/* Main Menu */
+
+#main-menu {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 22rem;
+  height: 100%;
+  background-color: #5288af;
+}
+
+#wordmark {
+  align-self: flex-start;
+  height: 2rem;
+  padding: 1rem;
+}
+
+#main-menu ul {
+  flex: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+/* Main */
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.6rem;
+  color: #fff;
+}
