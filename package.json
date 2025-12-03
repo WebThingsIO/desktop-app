@@ -1,0 +1,22 @@
+{
+  "name": "webthings-desktop-app",
+  "version": "0.1.0",
+  "description": "A general purpose Web of Things consumer desktop app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebThingsIO/desktop-app.git"
+  },
+  "author": "WebThingsIO",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/WebThingsIO/desktop-app/issues"
+  },
+  "devDependencies": {
+    "electron": "^39.2.4"
+  }
+}
