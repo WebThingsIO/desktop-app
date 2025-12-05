@@ -5,14 +5,17 @@ const { app, BrowserWindow } = require('electron');
  * 
  * Main script.
  */
-
 const createWindow = () => {
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 1024,
-    height: 768
-  })
+    height: 768,
+  });
 
-  win.loadFile('src/index.html')
+  mainWindow.loadFile('src/index.html');
+
+  if(process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
 }
 
 app.whenReady().then(() => {

@@ -6,23 +6,76 @@
     <title>WebThings</title>
     <link rel="icon" href="images/icon.svg" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
-    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/things-view.css" />
+    <script type="module" src="./js/app.js"></script>
   </head>
   <body>
-    <!-- Title Bar -->
-    <h1 class="title-bar"></h1>
 
     <!-- Main Menu -->
     <nav id="main-menu">
       <img id="wordmark" src="images/webthings-wordmark.svg" alt="WebThings" />
       <ul>
+        <li>
+          <a id="things-menu-item" class="selected" href="#">Things</a>
+        </li>
       </ul>
     </nav>
 
     <!-- Main -->
     <main>
-      <p>Welcome to the WebThings desktop app.</p>
+
+      <!-- Things View -->
+      <section id="things-view" class="view">
+
+        <h1 id="things-title-bar" class="title-bar">
+          <span id="things-title-bar-spinner" class="hidden spinner"></span>
+          <img id="things-title-bar-icon" src="images/thing-icon.svg" alt="Thing icon" />
+          <span id="things-title-bar-text">Things</span>
+        </h1>
+
+        <p id="add-thing-hint" class="hidden hint">Click + to add your first web thing.</p>
+
+        <!-- Things List -->
+        <div id="things-list" class="hidden"></div>
+
+        <!-- Add Thing Button -->
+        <button id="add-thing-button" class="image-button">
+          <img src="images/add-button.svg" alt="Add" />
+        </button>
+
+        <!-- Message Area -->
+        <div id="things-view-message-area" class="message-area"></div>
+
+        <!-- Add Thing Dialog -->
+        <dialog id="add-thing-dialog">
+          <button id="add-thing-close-button" class="close-button">
+            <img src="images/close-icon.svg" alt="Close">
+          </button>
+          <form id="add-thing-form" method="dialog">
+            <h1>
+              <span id="add-thing-spinner" class="hidden spinner"></span>
+              <img id="add-thing-icon" src="images/thing-icon.svg" alt="Add thing icon"/>
+              Add a Thing
+            </h1>
+            <div id="thing-preview" class="hidden">
+              <img id="thing-preview-icon" src="images/thing-icon-circle.svg" alt="Thing icon" />
+              <hgroup>
+                <h1 id="thing-preview-title">My Device</h1>
+                <p id="thing-preview-type">Thing</p>
+              </hgroup>
+            </div>
+            <input id="add-thing-url" type="url" placeholder="Enter web thing URL" required></input>
+            <input id="add-thing-token" type="password" placeholder="Bearer token" class="hidden"></input>
+            <input id="add-thing-cancel" type="button" value="Cancel" />
+            <input id="add-thing-next" type="submit" value="Next &raquo;" />
+            <input id="add-thing-add" type="submit" value="Add" class="hidden" />
+          </form>
+          <div id="add-thing-message-area" class="message-area"></div>
+        </dialog>
+      </section>
     </main>
 
+    <!-- Message Area -->
+    <div id="message-area" class="message-area"></div>
   </body>
 </html>
