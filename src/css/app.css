@@ -32,6 +32,140 @@ body {
   overflow: hidden; 
 }
 
+/* General Styles */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+input[type=password], 
+input[type=url]
+{
+  width: 27rem;
+  border-radius: 0.5rem;
+  border: none;
+  height: 3.2rem;
+  font-size: 1.6rem;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  margin: 0.5rem;
+}
+
+
+button, input[type=submit], input[type=button] {
+  background-color: rgba(255, 255, 255, 0.24);
+  height: 3.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.7rem;
+  color: #fff;
+  margin: 1rem;
+  padding: 0 2rem;
+}
+
+button:hover, button:active, 
+input[type=button]:hover, input[type=button]:active,
+input[type=submit]:hover, input[type=submit]:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+dialog {
+  width: 48rem;
+  min-width: 30rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: none;
+  color: #fff;
+  background-color: #5288af;
+  text-align: center;
+}
+
+dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+dialog h1 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+dialog h1 img, dialog h1 .spinner {
+  height: 2.4rem;
+  margin-right: 0.5rem;
+}
+
+dialog .close-button {
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0.8rem;
+  margin: 0.8rem;
+}
+
+dialog .close-button:hover, dialog .close-button:active {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 0.5rem;
+}
+
+dialog form {
+  width: 100%;
+  max-width: 38rem;
+  margin: 4rem 2rem;
+  text-align: center;
+}
+
+dialog form label {
+  text-align: left;
+  text-transform: uppercase;
+  width: 100%;
+  display: inline-block;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+
+dialog form input[type="password"],
+dialog form input[type="url"] {
+  width: 100%;
+  max-width: 38rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Re-usable classes */
+
+.image-button {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 2.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: 0;
+  background-color: #7dafd2;
+  border: none;
+  opacity: 0.9;
+}
+
+.image-button:hover, .image-button:active {
+  background-color: #7dafd2;
+  opacity: 1;
+}
+
 /* Title Bar */
 
 .title-bar {
@@ -48,6 +182,43 @@ body {
   left: 0;
   padding: 0 5rem;
   box-sizing: border-box;
+}
+
+.title-bar .spinner {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.7rem;
+}
+
+.title-bar img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.7rem;
+}
+
+.title-bar span {
+  font-size: 1.6rem;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.view {
+  padding-top: 4rem;
+  box-sizing: border-box;
+}
+
+.hint {
+  display: inline-block;
+  color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+}
+
+.hint.hidden {
+  display: none;
 }
 
 /* Main Menu */
@@ -76,14 +247,85 @@ body {
   overflow: auto;
 }
 
+#main-menu a {
+  display: block;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  padding: 2rem;
+  padding-left: 5.6rem;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  background-size: 2.4rem;
+  background-repeat: no-repeat;
+  background-position: 2rem;
+  outline: 0;
+}
+
+#main-menu a.selected, #main-menu a:hover, #main-menu a:active {
+  background-color: #48779a;
+}
+
+#main-menu #things-menu-item {
+  background-image: url('../images/thing-icon.svg');
+}
+
 /* Main */
 
 main {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0;
-  font-size: 1.6rem;
-  color: #fff;
+}
+
+/* General Styles */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/* CSS-only spinner from https://cssloaders.github.io/ */
+.spinner {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.2rem solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+.spinner.hidden {
+  display: none;
+}
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/** Error message area **/
+
+.message-area {
+  position: fixed;
+  width: calc(100% - 16rem);
+  margin: 0 8rem;
+  min-width: 32rem;
+  height: auto;
+  box-sizing: border-box;
+  bottom: 0;
+  padding: 1rem;
+  max-height: calc(50% - 5rem);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.message-area wt-toast {
+  margin: 0 auto;
 }
