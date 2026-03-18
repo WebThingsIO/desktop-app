@@ -11,7 +11,7 @@ export class ThingsController {
     this.model = model;
     this.view = view;
 
-    this.view.bindAddThing(this.handleAddThingRequest.bind(this));
+    this.view.setAddThingHandler(this.handleAddThingRequest.bind(this));
   }
 
   /**

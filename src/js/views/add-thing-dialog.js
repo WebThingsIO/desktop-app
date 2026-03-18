@@ -1,5 +1,7 @@
 'use strict';
 
+import { Toast } from './components/toast.js';
+
 /**
  * Add Thing Dialog.
  */
@@ -162,22 +164,30 @@ export class AddThingDialog {
       console.error('Tried to add a Thing without Thing Description and URL');
       return;
     }
-    this.addThingCallback(this.thingDescription, this.thingUrl.href).then(() => {
+    this.addThingHandler(this.thingDescription, this.thingUrl.href).then(() => {
       this.close();
     }).catch((error) => {
       switch(error.message) {
         case 'InvalidThingDescription':
           console.error('Failed to create Thing due to invalid Thing Description');
           this.showMessage('Error: Invalid Thing Description.');
+          break;
+        case 'DuplicateThingError':
+          console.error('User tried to add Thing with duplicate ID');
+          this.showMessage('A Thing already exists with this ID.');
+          break;
         case 'DatabaseError':
           console.error('Database error when trying to create Thing');
           this.showMessage('Database error.');
+          break;
         case 'InvalidRequest':
           console.error('Invalid request when trying to create Thing');
           this.showMessage('Error: Invalid request.');
+          break;
         default:
           console.log(`Unknown error when trying to create Thing: ${error}`);
           this.showMessage('Unknown Error.');
+          break;
       }
     });
   }
@@ -213,13 +223,13 @@ export class AddThingDialog {
   }
 
   /**
-   * Bind the callback function to call when the user requests adding a Thing.
+   * Set the callback function to call when the user requests adding a Thing.
    * 
-   * @param {function} addThingCallback The add thing callback. Accepts thingDescription 
+   * @param {function} addThingHandler The add thing callback. Accepts thingDescription 
    *   and thingUrl as arguments and returns a Promise.
    */
-  bindAddThing(addThingCallback) {
-    this.addThingCallback = addThingCallback;
+  setAddThingHandler(addThingHandler) {
+    this.addThingHandler = addThingHandler;
   }
 
 }
