@@ -103,11 +103,11 @@ export class ThingsView {
   /**
    * Provide a callback to call when the user requests to add a new Thing.
    * 
-   * @param {function} addThingCallback A callback to call when the user requests
+   * @param {function} addThingHandler A callback to call when the user requests
    *   to add a thing, with thingDescription and thingUrl as arguments. 
    */
-  bindAddThing(addThingCallback) {
-    this.addThingDialog.bindAddThing(addThingCallback);
+  setAddThingHandler(addThingHandler) {
+    this.addThingDialog.setAddThingHandler(addThingHandler);
   }
 
   /**

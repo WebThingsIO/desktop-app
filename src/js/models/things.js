@@ -97,7 +97,12 @@ export class Things extends EventTarget {
       transaction.onerror = (event) => {
         console.error(`Error creating thing with id ${thing.id}:`);
         console.debug(`${event.target.error.name}: ${event.target.error.message}`);
-        reject(new Error('DatabaseError'));
+        if(event.target.error.name == `ConstraintError`) {
+          reject(new Error('DuplicateThingError'));
+        } else {
+          reject(new Error('DatabaseError'));
+        }
+
       };
 
       const objectStore = transaction.objectStore('things');
