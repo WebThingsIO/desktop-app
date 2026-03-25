@@ -5,6 +5,8 @@ A general purpose [Web of Things](https://www.w3.org/WoT/) consumer desktop app.
 ![A UI mockup of the WebThings Desktop App showing a collection of Things](https://webthings.io/images/webthings_desktop_app_mockup.png)
 *UI Mockup of the WebThings Desktop App*
 
+See [WebThings App UI Mockups](https://docs.google.com/presentation/d/1qRuAxqvSS4c_nq26Lpa_51wsutIILY1Q-LANxblI5qo/edit?usp=sharing) for more.
+
 ## Development
 
 To get started hacking on the WebThings desktop app, first make sure that you have [Git](https://git-scm.com/) installed.
