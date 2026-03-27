@@ -2,6 +2,8 @@
 
 A general purpose [Web of Things](https://www.w3.org/WoT/) consumer desktop app.
 
+This application will implement the [W3C WoT Thing Description](https://www.w3.org/TR/wot-thing-description/), [W3C WoT Discovery](https://www.w3.org/TR/wot-discovery/) and ([proposed](https://lists.w3.org/Archives/Public/public-web-thing-protocol/2026Mar/0001.html)) W3C WoT Thing Protocol specifications.
+
 ![A UI mockup of the WebThings Desktop App showing a collection of Things](https://webthings.io/images/webthings_desktop_app_mockup.png)
 *UI Mockup of the WebThings Desktop App*
 
